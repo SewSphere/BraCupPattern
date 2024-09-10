@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cup Size Patterns</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cup Size Patterns</h1>
+    <p>Welcome to the Cup Size Patterns page. Here you can find the pattern for each cup size.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Cup Size</th>
+                <th>Over breast measurement</th>
+                <th>Pattern link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cup in cup_sizes %}
+            <tr>
+                <td>{{ cup.size_no }}</td>
+                <td>{{ cup.over_breast_measurement }}</td>
+                <td><a href="assets/cup_size_{{ cup.size_no }}.svg">pattern</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
