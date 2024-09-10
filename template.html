@@ -9,9 +9,11 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .content {
+        main {
             max-width: 800px;
             margin: auto;
+            display: flex;
+            flex-direction: column;
         }
         table {
             width: 100%;
@@ -33,18 +35,23 @@
         a:hover {
             text-decoration: underline;
         }
-        img {
-            margin: 20px;
+        main > img {
+            max-width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            align-self: center;
         }
     </style>
 </head>
 <body>
-    <div class="content">
+    <main>
         <h1>Bra Cup Patterns</h1>
         <img src="assets/cup_size_4.svg">
-        <p>This project aims to digitize the bra cup drafting technique from the <a href="http://web.archive.org/web/20171023043741/http://www.foundationsrevealed.com/index-of-articles/bra-making/how-to-make-a-bra/165-bras-drafting-a-darted-cup">"How To Make A Bra 2" blog post</a> by Mark Garbarczyk (now accessible only via the Wayback Machine).</p>
-        <p>These cup sizes are not standard. "Size 4" corresponds to a UK size 34B.</p>
-        <p>Each pattern is an SVG file measured in millimeters. These files can be easily imported into any vector graphics application, such as Adobe Illustrator or Affinity Designer.</p>        
+        <section>
+            <p>This project aims to digitize the bra cup drafting technique from the <a href="http://web.archive.org/web/20171023043741/http://www.foundationsrevealed.com/index-of-articles/bra-making/how-to-make-a-bra/165-bras-drafting-a-darted-cup">"How To Make A Bra 2" blog post</a> by Mark Garbarczyk (now accessible only via the Wayback Machine).</p>
+            <p>These cup sizes are not standard. "Size 4" corresponds to a UK size 34B.</p>
+            <p>Each pattern is an SVG file measured in millimeters. These files can be easily imported into any vector graphics application, such as Adobe Illustrator or Affinity Designer.</p>
+        </section>     
         <table>
             <thead>
                 <tr>
