@@ -5,40 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cup Size Patterns</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
         th, td {
             border: 1px solid black;
-            padding: 8px;
+            padding: 4px 8px;
             text-align: left;
         }
         th {
             background-color: #f2f2f2;
         }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>Cup Size Patterns</h1>
-    <p>Welcome to the Cup Size Patterns page. Here you can find the pattern for each cup size.</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Cup Size</th>
-                <th>Over breast measurement</th>
-                <th>Pattern link</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cup in cup_sizes %}
-            <tr>
-                <td>{{ cup.size_no }}</td>
-                <td>{{ cup.over_breast_measurement }}</td>
-                <td><a href="assets/cup_size_{{ cup.size_no }}.svg">pattern</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="content">
+        <h1>Bra Cup Patterns</h1>
+        <img src="assets/cup_size_4.svg">
+        <p>This project aims to digitize the bra cup drafting technique from the <a href="http://web.archive.org/web/20171023043741/http://www.foundationsrevealed.com/index-of-articles/bra-making/how-to-make-a-bra/165-bras-drafting-a-darted-cup">"How To Make A Bra 2" blog post</a> by Mark Garbarczyk (now accessible only via the Wayback Machine).</p>
+        <p>These cup sizes are not standard. "Size 4" corresponds to a UK size 34B.</p>
+        <p>Each pattern is an SVG file measured in millimeters. These files can be easily imported into any vector graphics application, such as Adobe Illustrator or Affinity Designer.</p>        
+        <table>
+            <thead>
+                <tr>
+                    <th>Cup Size</th>
+                    <th>Over breast measurement</th>
+                    <th>Pattern link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cup in cup_sizes %}
+                <tr>
+                    <td>{{ cup.size_no }}</td>
+                    <td>{{ cup.over_breast_measurement }}</td>
+                    <td><a href="assets/cup_size_{{ cup.size_no }}.svg">pattern</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

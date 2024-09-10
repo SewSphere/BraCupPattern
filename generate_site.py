@@ -201,7 +201,16 @@ def scale_pattern_points(pattern_points: List[PatternPoint], scale_factor: float
     """Scale the pattern points by a given factor."""
     return [point.scale(scale_factor) for point in pattern_points]
 
-def generate_cup_pattern_svg(pattern_points: List[PatternPoint], file_name: str, width: float, height: float):
+
+origin_ratio_x = 0.525
+origin_ratio_y = 0.64
+
+def generate_cup_pattern_svg(
+        pattern_points: List[PatternPoint],
+        file_name: str,
+        width: float,
+        height: float,
+):
     # Create the SVG drawing
     dwg = svgwrite.Drawing(
         file_name,
@@ -233,16 +242,15 @@ def generate_cup_pattern_svg(pattern_points: List[PatternPoint], file_name: str,
     path_data += 'Z'
 
     # Add the path to the drawing inside a <g> element with translation
-    g = dwg.g(transform=f'translate({width/2},{height/2})')
+    g = dwg.g(transform=f'translate({origin_ratio_x * width},{origin_ratio_y * height})')
     g.add(dwg.path(d=path_data, fill='none', stroke='black'))
     dwg.add(g)
 
     # Save the SVG file
     dwg.save()
 
-# For the reference cup size, the image is A4-sized. For other cup sizes, it's scaled respectively.
-base_width = 210
-base_height = 297
+base_width = 200
+base_height = 175
 
 # Create output directories if they don't exist
 os.makedirs('_site/assets', exist_ok=True)
